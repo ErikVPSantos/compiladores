@@ -1,4 +1,3 @@
-
 %{
 	enum Tokens{
 		ID,
@@ -51,7 +50,6 @@
 %}
 %option nodefault noyywrap
 %%
-
 "==" 		{ return OP_EQ; }
 "+=" 		{ return OP_SUMASG; }
 "-=" 		{ return OP_SUBASG; }
@@ -65,8 +63,6 @@
 "*"  		{ return OP_MUL; }
 "/"  		{ return OP_DIV; }
 "ˆ"  		{ return OP_POT; }
-"("  		{ return A_RPAR; }
-")"  		{ return A_LPAR; }
 "("  		{ return A_RPAR; }
 ")"  		{ return A_LPAR; }
 "{"  		{ return C_RPAR; }
@@ -96,13 +92,9 @@
 "for"		{ return KW_FOR; }
 "const"		{ return KW_CONST; }
 "return" 	{ return KW_RETURN; }
-
 [\r\n ] {}
 ([0-1]) { printf("[%s]", yytext); return L_BYTE; }
 (0|[1-9][0-9]*) { printf("[%s]", yytext); return L_INT; }
 (0|[1-9][0-9]*)?\.[0-9]+ { printf("[%s]", yytext); return L_DOUBLE; }
 (0|[1-9][0-9]*)?\.[0-9]+[fF] { printf("[%s]", yytext); return L_FLOAT; }
-\"[^"]*\" { printf("[%s]", yytext); return L_STRING; }
 %%
-
-
