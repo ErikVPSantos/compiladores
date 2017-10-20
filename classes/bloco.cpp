@@ -1,15 +1,5 @@
 #include <iostream>
-using namespace std;
-
-class Bloco {
-
-  public:
-    Bloco();
-    
-}; 
-
-Bloco::Bloco() { 
-}
+#include <bloco.h>
 
 int main () {
   return 0;

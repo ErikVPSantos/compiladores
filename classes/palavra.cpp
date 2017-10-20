@@ -1,15 +1,5 @@
 #include <iostream>
-using namespace std;
-
-class ID {
-
-  public:
-    ID();
-    
-}; 
-
-ID::ID() { 
-}
+#include <palavra.h>
 
 int main () {
   return 0;

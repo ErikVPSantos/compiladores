@@ -1,14 +1,5 @@
 #include <iostream>
-using namespace std;
-
-class LinhaLinhas {
-
-    Linha linha;
-
-	public:
-    	LinhaLinhas(Linha);
-
-};
+#include <linhasLinha.h>
 
 int main () {
 

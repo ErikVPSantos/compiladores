@@ -1,14 +1,5 @@
 #include <iostream>
-using namespace std;
-
-class BlocoExps {
-
-    Exp exp;
-
-	public:
-    	BlocoExps(Exp);
-
-};
+#include <blocoExp>
 
 int main () {
 

@@ -1,15 +1,5 @@
 #include <iostream>
-using namespace std;
-
-class Exps {
-
-  public:
-    Exps();
-    
-}; 
-
-Exps::Exps() { 
-}
+#include <exps.h>
 
 int main () {
   return 0;

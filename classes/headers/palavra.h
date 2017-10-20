@@ -10,7 +10,4 @@ class ID {
     
 }; 
 
-ID::ID() { 
-}
-
 #endif

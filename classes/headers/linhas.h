@@ -11,7 +11,5 @@ class Linhas {
     
 }; 
 
-Linhas::Linhas() { 
-}
 
 #endif

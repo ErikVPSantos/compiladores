@@ -1,15 +1,5 @@
 #include <iostream>
-using namespace std;
-
-class Palavras {
-
-  public:
-    Palavras();
-    
-}; 
-
-Palavras::Palavras() { 
-}
+#include <palavras.h>
 
 int main () {
   return 0;

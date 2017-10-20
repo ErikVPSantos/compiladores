@@ -10,7 +10,4 @@ class Palavras {
     
 }; 
 
-Palavras::Palavras() { 
-}
-
 #endif

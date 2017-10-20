@@ -1,14 +1,5 @@
 #include <iostream>
-using namespace std;
-
-class IDPalavras {
-
-    ID id;
-
-	public:
-    	IDPalavras(ID);
-
-};
+#include <idPalavras.h>
 
 int main () {
 

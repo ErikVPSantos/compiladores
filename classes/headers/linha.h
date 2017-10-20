@@ -10,7 +10,4 @@ class Linha {
     
 }; 
 
-Linha::Linha() { 
-}
-
 #endif

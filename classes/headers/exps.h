@@ -8,7 +8,4 @@ class Exps {
     
 }; 
 
-Exps::Exps() { 
-}
-
  #endif

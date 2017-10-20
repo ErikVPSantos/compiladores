@@ -10,8 +10,4 @@ class Bloco {
     
 }; 
 
-Bloco::Bloco() { 
-}
-
-
 #endif
