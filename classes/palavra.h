@@ -1,12 +1,13 @@
-#ifndef PALAVRA_H 
-#define PALAVRA_H;
+#ifndef ID_H 
+#define ID_H;
 
 #include "palavras.h"
 
 class ID {
 
   public:
-    ID();
+    ID() { }
+    virtual ~ID() { }
     
 }; 
 

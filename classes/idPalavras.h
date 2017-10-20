@@ -5,10 +5,16 @@
 
 class IDPalavras {
 
-    ID id;
+	private:
+		ID *id_;
 
 	public:
-    	IDPalavras(ID);
+    	IDPalavras(ID id) : id_(id) { }
+    	virtual ~IDPalavras() {
+    		delete id_;
+    	}
+    	IDPalavras(const IDPalavras& p) : id_(p.id_) { }
+    	ID id() const { return id_; }
 
 };
 

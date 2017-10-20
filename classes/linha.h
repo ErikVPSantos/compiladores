@@ -6,7 +6,8 @@
 class Linha {
 
   public:
-    Linha();
+    Linha() {}
+    virtual ~Linha() {}
     
 }; 
 

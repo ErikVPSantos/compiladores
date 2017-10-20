@@ -1,16 +1,21 @@
 #ifndef IDDOUBLEDOTSLINHASDOTCOMMA_H 
 #define IDDOUBLEDOTSLINHASDOTCOMMA_H;
 
-#include "bloco.h"
 #include "linhas.h"
 
-class IDDOUBLE_DOTSLinhasDOT_COMMA {
+class IdDouble_DotsLinhasDot_Comma {
 
-	ID id;
-	Linhas linhas;
+	private:
+		ID id_;
+		Linhas *linhas_;
 
  	public:
-    	IDDOUBLE_DOTSLinhasDOT_COMMA(ID, Linhas); 
+    	IdDouble_DotsLinhasDot_Comma(ID id, Linhas linhas) : id_(id), linhas_(linhas) {}
+    	virtual ~IdDouble_DotsLinhasDot_Comma(){
+    		delete linhas_;
+    	}
+    	IdDouble_DotsLinhasDot_Comma(const IdDouble_DotsLinhasDot_Comma& i) : id_(i.id), linhas_(i.linhas_) {}
+    	Linhas linhas() const { return linhas_; }
     
 }; 
 
