@@ -69,21 +69,5 @@ linhas: linha
 linha: palavras
        |PIPE palavras;
                    
-palavras: palavra
-          |palavra palavras; //Convertido em classe com NOME_BLOCO como atributos
-          
-
-constante: L_INT
-          |L_PAR
-          |L_DIR
-          |L_STRING;
-          //etc
-       
-operacao:   OP_EQ
-           |OP_SUM
-           |OP_MUL      
-           |OP_DIV;
-           //etc
- 
-//etc serao tokens definidos pelo analisador lexico
-//as classes serao PALAVRAS
+palavras: ID
+          |ID palavras;
