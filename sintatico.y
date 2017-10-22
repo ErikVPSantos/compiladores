@@ -29,20 +29,23 @@
 
 sintatico: preambulo  SEPARATOR exps SEPARATOR;
 
-preambulo: includes definição_tokens union definição_tipos;
+preambulo: includes def_tokens def_union def_tipos;
            
-includes: INCLUD_OPEN texto INCLUD_CLOSE;
+includes: INCLUD_OPEN texto INCLUD_CLOSE
+          | ;
 
 texto: L_ STRING
        | L_STRING texto;
 
-definição_tokens: L_TOKEN ID
-                  | L_TOKEN ID definição_tokens;
+def_tokens: L_TOKEN ID
+            | L_TOKEN ID def_tokens;
                   
-union: L_UNION C_BRACKET_LEFT texto C_BRACKET_RIGHT;
+def_union: L_UNION C_BRACKET_LEFT texto C_BRACKET_RIGHT
+           | ;
 
-definição_tipos: L_TYPE OP_LT texto OP_GT ID
-                 | L_TYPE OP_LT texto OP_GT ID definição_tipos;
+def_tipos: L_TYPE OP_LT texto OP_GT ID
+           | L_TYPE OP_LT texto OP_GT ID def_tipos
+           | ;
                              
 exps: bloco 
      |bloco exps;
