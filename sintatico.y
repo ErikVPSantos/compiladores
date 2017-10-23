@@ -35,7 +35,7 @@ preambulo: includes def_tokens def_union def_tipos;
 includes: INCLUD_OPEN texto INCLUD_CLOSE
           | ;
 
-texto: L_ STRING
+texto: L_STRING
        | L_STRING texto;
 
 def_tokens: L_TOKEN ID

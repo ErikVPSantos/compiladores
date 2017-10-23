@@ -27,7 +27,7 @@
 "{"  		{ return C_BRACKET_LEFT; }
 "}"  		{ return C_BRACKET_RIGHT; }
 "|"  		{ return PIPE; }
-":"		{ return COLON; }
+":"			{ return COLON; }
 ";"  		{ return SEMICOLON; }
 
 [\r\n ] {}
