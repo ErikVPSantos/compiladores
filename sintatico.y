@@ -7,7 +7,8 @@
 % token OP_GT,
 % token OP_LT,
 % token PIPE,
-% token DOT_COMMA,
+% token COLON,
+% token SEMICOLON,
 % token INCLUD_OPEN, 
 % token INCLUD_CLOSE,
 % token L_TOKEN,
@@ -50,7 +51,7 @@ def_tipos: L_TYPE OP_LT texto OP_GT ID
 exps: bloco 
      |bloco exps;
 
-bloco: ID DOUBLE_DOTS linhas DOT_COMMA;
+bloco: ID COLON linhas SEMICOLON;
 
 linhas: linha
         |linha linhas;
