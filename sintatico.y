@@ -28,7 +28,7 @@
 
 %%
 
-sintatico: preambulo  SEPARATOR exps SEPARATOR;
+codigo: preambulo  SEPARATOR exps SEPARATOR;
 
 preambulo: includes def_tokens def_union def_tipos;
            
