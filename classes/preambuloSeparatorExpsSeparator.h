@@ -12,13 +12,13 @@ class PreambuloSeparatorExpsSeparator {
     	Exps *exps_;
 
 	public:
-    	PreambuloSeparatorExpsSeparator(Exps exps, Preambulo pream) : exps_(exps), pream_(pream) { }
+    	PreambuloSeparatorExpsSeparator(Exps *exps, Preambulo *pream) : exps_(exps), pream_(pream) { }
     	virtual ~PreambuloSeparatorExpsSeparator() {
     		delete exps_, pream_;
     	}
     	PreambuloSeparatorExpsSeparator(const PreambuloSeparatorExpsSeparator& s) : exps_(s.exps_), pream_(s.pream_) { }
-    	Exps exps() const { return exps_; }
-        Preambulo preambulo() const { return pream_; }
+    	Exps *exps() const { return exps_; }
+        Preambulo *preambulo() const { return pream_; }
 
 };
 
