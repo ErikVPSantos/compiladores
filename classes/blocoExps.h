@@ -9,12 +9,12 @@ class BlocoExps {
     	Exps *exps_;
 
 	public:
-    	BlocoExps(Exps exps) : exps_(exps) { }
+    	BlocoExps(Exps *exps) : exps_(exps) { }
     	virtual ~BlocoExps() {
     		delete exps_;
     	}
     	BlocoExps(const BlocoExps& b) : exps_(b.exps_) { }
-    	Exps exps() const { return exps_; }
+    	Exps *exps() const { return exps_; }
 
 };
 
