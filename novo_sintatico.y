@@ -50,15 +50,15 @@ def_tipos: L_TYPE OP_LT texto OP_GT ID { $$ = new L_TypeOp_LTTextoOp_GtId($2); }
            | L_TYPE OP_LT texto OP_GT ID def_tipos { $$ = new L_TypeOp_LTTextoOp_GtIdDef_Tipos ($2,$5); }  
            | ;
                              
-exps: bloco { $$ = new Bloco(); }                                 // { $$ = $1;}
+exps: bloco { $$ = $1; }                                 
      |bloco exps { $$ = new BlocoExps ($1, $2); }
 
 bloco: ID COLON linhas SEMICOLON { $$ = new IdColonLinhasSemicolon  ($3); };
 
-linhas: linha { $$ = new Linha(); }                               // { $$ = $1;}
+linhas: linha { $$ = $1; }                               
         |linha linhas { $$ = new LinhaLinhas ($2); };
 
-linha: palavras { $$ = new Palavras(); }                          // { $$ = $1;}
+linha: palavras { $$ = $1; }                          
        |PIPE palavras { $$ = new PipePalavras($2); } ; 
                    
 palavras: ID
