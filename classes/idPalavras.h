@@ -3,18 +3,20 @@
 
 #include "palavras.h"
 
-class IDPalavras {
+class IdPalavras {
 
 	private:
-		ID *id_;
+		std::string id_;
+		Palavras *palavras_;
 
 	public:
-    	IDPalavras(ID id) : id_(id) { }
-    	virtual ~IDPalavras() {
-    		delete id_;
+	IdPalavras(std::string id, Palavras *palavras) : id_(id), palavras_(palavras) { }
+    	virtual ~IdPalavras() {
+    		delete palavras_;
     	}
-    	IDPalavras(const IDPalavras& p) : id_(p.id_) { }
-    	ID id() const { return id_; }
+
+    	IdPalavras(const IdPalavras& p) : id_(p.id_), palavras_(p.palavras_) { }
+    	Palavras *palavras() const { return palavras_; }
 	
 	void accept(Visitor *v) {
 		v->visit(this);
