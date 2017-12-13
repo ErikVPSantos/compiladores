@@ -19,6 +19,10 @@ class PreambuloSeparatorExpsSeparator {
     	PreambuloSeparatorExpsSeparator(const PreambuloSeparatorExpsSeparator& s) : exps_(s.exps_), pream_(s.pream_) { }
     	Exps *exps() const { return exps_; }
         Preambulo *preambulo() const { return pream_; }
+	
+	void accept(Visitor *v) {
+		v->visit(this);
+	};
 
 };
 
