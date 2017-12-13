@@ -2,6 +2,7 @@
 #define IDPALAVRAS_H;
 
 #include "palavras.h"
+#include <string>
 
 class IdPalavras {
 
