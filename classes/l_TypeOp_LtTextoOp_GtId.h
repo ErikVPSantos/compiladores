@@ -5,7 +5,7 @@
 #include "texto.h"
 #include <string>
 
-class L_TypeOp_LTTextoOp_GtId {
+class L_TypeOp_LtTextoOp_GtId {
 	
 	private:
 	std::string id_;
