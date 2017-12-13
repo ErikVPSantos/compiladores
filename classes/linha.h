@@ -8,6 +8,10 @@ class Linha {
   public:
     Linha() {}
     virtual ~Linha() {}
+  
+    void accept(Visitor *v) {
+		  v->visit(this);
+  	};
     
 }; 
 
