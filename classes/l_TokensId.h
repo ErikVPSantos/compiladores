@@ -15,6 +15,10 @@ class  L_TokensID {
     	}
     	L_TokensID(const L_TokensID& l) : id_(l.id_) { }
     	Id id() const { return id_; }
+	
+	void accept(Visitor *v) {
+		v->visit(this);
+	};
     
 }; 
 
