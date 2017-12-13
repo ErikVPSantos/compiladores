@@ -6,6 +6,10 @@ class Linhas {
   public:
   	Linhas() {}
     virtual ~Linhas() {}
+  
+  void accept(Visitor *v) {
+		v->visit(this);
+	};
     
 }; 
 
