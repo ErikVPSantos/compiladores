@@ -15,6 +15,10 @@ class IDPalavras {
     	}
     	IDPalavras(const IDPalavras& p) : id_(p.id_) { }
     	ID id() const { return id_; }
+	
+	void accept(Visitor *v) {
+		v->visit(this);
+	};
 
 };
 
