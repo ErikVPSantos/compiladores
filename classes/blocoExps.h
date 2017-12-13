@@ -15,6 +15,10 @@ class BlocoExps {
     	}
     	BlocoExps(const BlocoExps& b) : exps_(b.exps_) { }
     	Exps *exps() const { return exps_; }
+	
+	void accept(Visitor *v) {
+		v->visit(this);
+	};
 
 };
 
