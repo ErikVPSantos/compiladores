@@ -18,6 +18,10 @@ class L_TokenIdDef_Tokens {
     	L_TokenIdDef_Tokens(const L_TokenIdDef_Tokens& b) : defT_(b.defT_), id_(b.id_) { }
     	Def_tokens def_tokens() const { return defT_; }
         Id id() const { return id_; }
+	
+	void accept(Visitor *v) {
+		v->visit(this);
+	};
 
 };
 
