@@ -6,6 +6,10 @@ class Def_Tokens {
 	public:
     	Def_Tokens() { }
     	virtual ~Def_Tokens() { }
+	
+	void accept(Visitor *v) {
+		v->visit(this);
+	};
     	
 }; 
 
