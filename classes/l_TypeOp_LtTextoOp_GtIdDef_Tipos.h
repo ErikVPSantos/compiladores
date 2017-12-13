@@ -21,6 +21,10 @@ class L_TypeOp_LTTextoOp_GtIdDef_Tipos {
     	Id id() const { return id_; }
         Texto texto() const { return texto_; }
         Def_tipos def_tipos() const { return defTp_; }
+	
+	void accept(Visitor *v) {
+		v->visit(this);
+	};
 
 };
 
