@@ -6,6 +6,10 @@ class Exps {
 	public:
     	Exps();
     	virtual ~Exps() { } 
+	
+	void accept(Visitor *v) {
+		v->visit(this);
+	};
     
 }; 
 
