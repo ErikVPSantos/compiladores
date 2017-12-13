@@ -6,6 +6,10 @@ class Bloco {
 	public:
     	Bloco() { }
     	virtual ~Bloco() { }
+	
+	void accept(Visitor *v) {
+		v->visit(this);
+	};
     	
 }; 
 
