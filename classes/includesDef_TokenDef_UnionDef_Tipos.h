@@ -25,6 +25,10 @@ class IncludesDef_TokenDef_UnionDef_Tipos {
         Def_token def_token() const { return defT_; }
         Def_union def_union() const { return defU_; }
         Def_tipoes def_tipos() const { return defTp_; }
+	
+	void accept(Visitor *v) {
+		v->visit(this);
+	};
 
 };
 
