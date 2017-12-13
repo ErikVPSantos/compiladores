@@ -18,6 +18,10 @@ class L_TypeOp_LTTextoOp_GtId {
     	L_TypeOp_LTTextoOp_GtId(const L_TypeOp_LTTextoOp_GtId& t) : id_(t.id_), texto_(t.texto_) { }
     	Id id() const { return id_; }
         Texto texto() const { return texto_; }
+	
+	void accept(Visitor *v) {
+		v->visit(this);
+	};
 
 };
 
