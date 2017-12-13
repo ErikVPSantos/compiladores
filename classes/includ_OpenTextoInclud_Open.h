@@ -15,6 +15,10 @@ class Includ_OpenTextoInclud_Open {
     	}
     	Includ_OpenTextoInclud_Open(const Includ_OpenTextoInclud_Open& b) : texto_(b.texto_) { }
     	Texto texto() const { return texto_; }
+	
+	void accept(Visitor *v) {
+		v->visit(this);
+	};
 
 };
 
