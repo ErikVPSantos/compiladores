@@ -1,5 +1,5 @@
-#ifndef LTOKENIDDEFTOKENS_H
-#define LTOKENIDDEFTOKENS_H
+#ifndef LTYPEOPLTTEXTOOPGTDEFTIPOS_H
+#define LTYPEOPLTTEXTOOPGTDEFTIPOS_H
 
 #include <string>
 #include "texto.h"
