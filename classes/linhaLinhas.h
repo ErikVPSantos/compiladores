@@ -16,6 +16,10 @@ class LinhaLinhas {
 		}
     	LinhaLinhas(cont LinhaLinhas& l) : linha_(l.linha_) { }
     	Linha linha() const { return linha_; }
+	
+	void accept(Visitor *v) {
+		v->visit(this);
+	};
 
 };
 
