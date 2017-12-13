@@ -3,21 +3,21 @@
 
 #include "id.h"
 #include "texto.h"
+#include <string>
 
 class L_TypeOp_LTTextoOp_GtId {
 	
 	private:
-        Id *id_;
+	std::string id_;
     	Texto *texto_;
         
 	public:
-    	L_TypeOp_LTTextoOp_GtId(Id id, Texto texto) : id_(id), texto_(texto) { }
+    	L_TypeOp_LTTextoOp_GtId(std::String id, Texto *texto) : id_(id), texto_(texto) { }
     	virtual ~L_TypeOp_LTTextoOp_GtId() {
-    		delete id_, texto_;
+    		delete texto_;
     	}
     	L_TypeOp_LTTextoOp_GtId(const L_TypeOp_LTTextoOp_GtId& t) : id_(t.id_), texto_(t.texto_) { }
-    	Id id() const { return id_; }
-        Texto texto() const { return texto_; }
+        Texto *texto() const { return texto_; }
 	
 	void accept(Visitor *v) {
 		v->visit(this);
