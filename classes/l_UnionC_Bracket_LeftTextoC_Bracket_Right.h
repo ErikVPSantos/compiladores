@@ -9,12 +9,12 @@ class  L_UnionC_Bracket_LeftTextoC_Bracket_Right {
     	Texto *texto_;
 
 	public:
-		L_UnionC_Bracket_LeftTextoC_Bracket_Right(Texto texto): texto_(texto) { }
+		L_UnionC_Bracket_LeftTextoC_Bracket_Right(Texto *texto): texto_(texto) { }
     	virtual ~L_UnionC_Bracket_LeftTextoC_Bracket_Right() { 
     		delete texto_;
     	}
     	L_UnionC_Bracket_LeftTextoC_Bracket_Right(const L_UnionC_Bracket_LeftTextoC_Bracket_Right& l) : texto_(l.texto_) { }
-    	Texto texto() const { return texto_; }
+    	Texto *texto() const { return texto_; }
 	
 	void accept(Visitor *v) {
 		v->visit(this);
