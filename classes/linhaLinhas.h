@@ -8,14 +8,16 @@ class LinhaLinhas {
 
 	private:
 		Linha *linha_;
+		Linhas *linhas_;
 
 	public:
-		LinhaLinhas(Linha linha) : linha_(linha) { }
+		LinhaLinhas(Linha *linha, Linhas *linhas) : linha_(linha), linhas_(linha) { }
 		virtual ~LinhaLinhas() {
-			delete linha_;
+			delete linha_, linhas_;
 		}
-    	LinhaLinhas(cont LinhaLinhas& l) : linha_(l.linha_) { }
-    	Linha linha() const { return linha_; }
+    	LinhaLinhas(cont LinhaLinhas& l) : linha_(l.linha_), linhas_(l.linhas) { }
+    	Linha *linha() const { return linha_; }
+	Linhas *linhas() const { return linhas_; }
 	
 	void accept(Visitor *v) {
 		v->visit(this);
