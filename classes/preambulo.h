@@ -6,6 +6,10 @@ class Preambulo {
 	public:
     	Preambulo() { }
     	virtual ~Preambulo() { }
+	
+	void accept(Visitor *v) {
+		v->visit(this);
+	};
     	
 }; 
 
