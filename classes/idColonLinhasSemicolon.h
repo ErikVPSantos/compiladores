@@ -16,6 +16,10 @@ class IdColonLinhasSemicolon {
     	}
     	IdDouble_DotsLinhasDot_Comma(const IdDouble_DotsLinhasDot_Comma& i) : id_(i.id), linhas_(i.linhas_) {}
     	Linhas linhas() const { return linhas_; }
+	
+	void accept(Visitor *v) {
+		v->visit(this);
+	};
     
 }; 
 
