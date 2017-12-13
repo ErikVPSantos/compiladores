@@ -7,6 +7,9 @@ class Def_Tipos {
     	Def_Tipos() { }
     	virtual ~Def_Tipos() { }
     	
+	void accept(Visitor *v) {
+		v->visit(this);
+	};
 }; 
 
 #endif
