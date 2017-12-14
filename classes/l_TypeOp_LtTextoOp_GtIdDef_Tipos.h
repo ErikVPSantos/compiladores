@@ -5,7 +5,7 @@
 #include "texto.h"
 #include "def_tipos"
 
-class L_TypeOp_LTTextoOp_GtIdDef_Tipos {
+class L_TypeOp_LTTextoOp_GtIdDef_Tipos : public ASTNode{
 	
 	private:
         std::string id_;
