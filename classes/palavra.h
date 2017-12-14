@@ -3,7 +3,7 @@
 
 #include "palavras.h"
 
-class ID {
+class ID : public ASTNode{
 
   public:
     ID() { }
