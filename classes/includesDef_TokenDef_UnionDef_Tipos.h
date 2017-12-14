@@ -7,7 +7,7 @@
 #include "def_tipos.h"
 
 
-class IncludesDef_TokenDef_UnionDef_Tipos {
+class IncludesDef_TokenDef_UnionDef_Tipos : public ASTNode{
 	
 	private:
         Includes *inc_;
