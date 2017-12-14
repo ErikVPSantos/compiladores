@@ -1,7 +1,7 @@
 #ifndef TEXTO_H 
 #define TEXTO_H;
 
-class Texto {
+class Texto : public ASTNode{
 
 	public:
     	Texto() { }
