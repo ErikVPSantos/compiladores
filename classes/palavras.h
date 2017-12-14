@@ -1,7 +1,7 @@
 #ifndef PALAVRAS_H 
 #define PALAVRAS_H;
 
-class Palavras {
+class Palavras : public ASTNode{
 
   public:
     Palavras() {}
