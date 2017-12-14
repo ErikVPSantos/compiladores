@@ -4,7 +4,7 @@
 #include "palavras.h"
 #include <string>
 
-class IdPalavras {
+class IdPalavras : public ASTNode {
 
 	private:
 		std::string id_;
