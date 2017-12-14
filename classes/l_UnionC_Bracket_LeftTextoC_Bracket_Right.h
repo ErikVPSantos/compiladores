@@ -3,7 +3,7 @@
 
 #include "texto.h"
 
-class  L_UnionC_Bracket_LeftTextoC_Bracket_Right {
+class  L_UnionC_Bracket_LeftTextoC_Bracket_Right : public ASTNode{
 
     private:
     	Texto *texto_;
