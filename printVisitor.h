@@ -2,6 +2,8 @@
 #define PRINTVISITOR_H
 
 #include <IOstream>
+#include <stack>  
+#include <fstream>
 
 class PrintVisitor : public Visitor 
 {
@@ -160,36 +162,36 @@ class PrintVisitor : public Visitor
 				nome += nomeatt.pop();
 			}
 
+			//Abrir arquivo
+			std::ofstream outputFile;
 			outputFile.open(nome + ".h");
-	        cout << "class " + nome +" : public ASTNode {\n";
+	        outputFile << "class " + nome + " : public ASTNode {\n";
 
 	        //Definir parâmetros de classe
      		std::attatt = att;
-        	cout << "private: \n";
+			outputFile << "\nprivate: \n";
 	        for (int i = 0; i < count; ++i) {
 	        	std::string atributo = attatt.pop();
-	        	cout << atributo + " *" + atributo + "_;\n";
+	        	outputFile << atributo + " *" + atributo + "_;\n";
 	        }
 	        
 	        //Criar construtor publico com atributos de classe
-	        cout << "public: \n";
-        	cout << nome + "(";
+	        outputFile << "\npublic: \n";
+        	outputFile << nome + "(";
         	std::construtoratt = att;
-        	for (int i = 0; i < count; ++i)
-        	{
+        	for (int i = 0; i < count; ++i) {
         		std::string atributo = construtoratt.pop();
-        		cout << atributo + " *" + atributo;
+        		outputFile << atributo + " *" + atributo;
         		if(i != count - 1) {  cout << ", "; } 
         	}
-        	cout << " : ";
-        	for (int i = 0; i < count; ++i)
-        	{
+        	cout << ") : ";
+        	for (int i = 0; i < count; ++i) {
         		std::string atributo = construtoratt.pop();
-        		cout << atributo + "_(" + atributo + ")";
+        		outputFile << atributo + "_(" + atributo + ")";
         		if(i != count - 1) {  cout << ", "; } 
         	}
-        	cout << ") { }\n";
-        	cout << "};"
+        	outputFile << " { }\n";
+        	outputFile << "\n};"
 
 	        outputFile.close();
 		}
