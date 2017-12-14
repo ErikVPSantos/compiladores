@@ -1,7 +1,7 @@
 #ifndef LINHAS_H 
 #define LINHAS_H;
 
-class Linhas {
+class Linhas : public ASTNode{
 
   public:
   	Linhas() {}
