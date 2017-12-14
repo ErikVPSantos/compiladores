@@ -1,7 +1,7 @@
 #ifndef DEFTOKENS_H 
 #define DEFTOKENS_H;
 
-class Def_Tokens {
+class Def_Tokens: public ASTNode {
 
 	public:
     	Def_Tokens() { }
