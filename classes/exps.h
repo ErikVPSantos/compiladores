@@ -1,7 +1,7 @@
 #ifndef	EXPS_H 
 #define EXPS_H;
 
-class Exps {
+class Exps: public ASTNode {
 
 	public:
     	Exps();
