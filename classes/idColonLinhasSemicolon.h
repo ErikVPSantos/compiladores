@@ -4,7 +4,7 @@
 #include "linhas.h"
 #include <string>
 
-class IdColonLinhasSemicolon {
+class IdColonLinhasSemicolon: public ASTNode {
 
 	private:
 		std::string id_;
