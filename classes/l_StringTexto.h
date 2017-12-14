@@ -3,7 +3,7 @@
 
 #include "texto.h"
 
-class L_StringTexto {
+class L_StringTexto : public ASTNode{
 	
 	private:
     	Texto *texto_;
