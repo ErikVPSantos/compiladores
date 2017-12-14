@@ -1,7 +1,7 @@
 #ifndef BLOCO_H 
 #define BLOCO_H;
 
-class Bloco {
+class Bloco: public ASTNode {
 
 	public:
     	Bloco() { }
