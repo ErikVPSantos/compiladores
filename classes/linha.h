@@ -3,7 +3,7 @@
 
 #include "linhas.h"
 
-class Linha {
+class Linha : public ASTNode{
 
   public:
     Linha() {}
