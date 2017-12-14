@@ -5,7 +5,7 @@
 #include "def_tokens.h"
 #include <string>
 
-class L_TokenIdDef_Tokens {
+class L_TokenIdDef_Tokens : public ASTNode{
 	
 	private:
     	Def_tokens *defT_;
