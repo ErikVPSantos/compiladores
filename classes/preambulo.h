@@ -1,7 +1,7 @@
 #ifndef PREAMBULO_H 
 #define PREAMBULO_H;
 
-class Preambulo {
+class Preambulo : public ASTNode{
 
 	public:
     	Preambulo() { }
