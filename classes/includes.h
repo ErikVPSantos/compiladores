@@ -1,7 +1,7 @@
 #ifndef INCLUDES_H 
 #define INCLUDES_H;
 
-class Includes {
+class Includes : public ASTNode{
 
 	public:
     	Includes() { }
