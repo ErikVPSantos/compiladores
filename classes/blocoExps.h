@@ -3,7 +3,7 @@
 
 #include "exps.h"
 
-class BlocoExps {
+class BlocoExps: public ASTNode {
 	
 	private:
     	Exps *exps_;
