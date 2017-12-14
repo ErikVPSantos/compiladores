@@ -1,7 +1,7 @@
 #ifndef DEFUNION_H 
 #define DEFUNION_H;
 
-class Def_Union {
+class Def_Union: public ASTNode {
 
 	public:
     	Def_Union() { }
