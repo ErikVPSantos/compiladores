@@ -12,9 +12,9 @@ class Visitor {
     virtual ~visit(Def_Tokens *def_Tokens) {}
     virtual ~visit(Def_Union *def_Union) {}
     virtual ~visit(Exps  *exps) {}
-    virtual ~visit(ID *id) {}
     virtual ~visit(IdColonLinhasSemicolon  *idColonLinhasSemicolon ) {}
-    virtual ~visit(IDPalavras  *idPalavras ) {}
+    virtual ~visit(IdPalavras  *idPalavras ) {}
+     virtual ~visit(IdFolha  *idFolha ) {}
     virtual ~visit(Includ_OpenTextoInclud_Open   *includ_OpenTextoInclud_Open ) {}
     virtual ~visit(Includes  *includes ) {}
     virtual ~visit(IncludesDef_TokenDef_UnionDef_Tipos *includesDef_TokenDef_UnionDef_Tipos) {}
@@ -26,6 +26,7 @@ class Visitor {
     virtual ~visit(L_UnionC_Bracket_LeftTextoC_Bracket_Right  *l_UnionC_Bracket_LeftTextoC_Bracket_Right  ) {}
     virtual ~visit(Linha    *linha   ) {}
     virtual ~visit(LinhaLinhas   *linhaLinhas  ) {}
+    virtual ~visit(LinhaUnica   *linhaUnica  ) {}
     virtual ~visit(Linhas   *linhas   ) {}
     virtual ~visit(Palavras    *palavras   ) {}
     virtual ~visit(Preambulo    *preambulo  ) {}

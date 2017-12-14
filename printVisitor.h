@@ -5,6 +5,9 @@
 
 class PrintVisitor : public Visitor 
 {
+	private:
+		std::stack att_;
+
 	public:
 		virtual void visit(VariablesTypesRule5* e)
 		{
@@ -134,6 +137,65 @@ class PrintVisitor : public Visitor
 		virtual void visit(Linhas* e)
 		{
 			e -> linhas() -> accept(this);
+		}
+		virtual void visit(IdFolha* e)
+		{
+			std::cout << "L_STRING";
+			att.push(cout);
+		}
+		virtual void visit(LinhaLinhas* e)
+		{
+			e -> linha() -> accept(this);
+			e -> linhas() -> accept(this);
+		}
+		virtual void visit(LinhaUnica* e)
+		{
+			e -> linha() -> accept(this);
+
+			std::string nome; // atributos concatenados
+			std::int count = att.size();
+
+			std::stack nomeatt = att;
+			for (int i = 0; i < count; ++i) {
+				nome += nomeatt.pop();
+			}
+
+			outputFile.open(nome + ".h");
+	        cout << "class " + nome +" : public ASTNode {\n";
+
+	        //Definir parâmetros de classe
+     		std::attatt = att;
+        	cout << "private: \n";
+	        for (int i = 0; i < count; ++i) {
+	        	std::string atributo = attatt.pop();
+	        	cout << atributo + " *" + atributo + "_;\n";
+	        }
+	        
+	        //Criar construtor publico com atributos de classe
+	        cout << "public: \n";
+        	cout << nome + "(";
+        	std::construtoratt = att;
+        	for (int i = 0; i < count; ++i)
+        	{
+        		std::string atributo = construtoratt.pop();
+        		cout << atributo + " *" + atributo;
+        		if(i != count - 1) {  cout << ", "; } 
+        	}
+        	cout << " : ";
+        	for (int i = 0; i < count; ++i)
+        	{
+        		std::string atributo = construtoratt.pop();
+        		cout << atributo + "_(" + atributo + ")";
+        		if(i != count - 1) {  cout << ", "; } 
+        	}
+        	cout << ") { }\n";
+        	cout << "};"
+
+	        outputFile.close();
+		}
+		virtual void visit(Linha* e)
+		{
+			e -> linha() -> accept(this);
 		}
 		virtual void visit(Palavras* e)
 		{
