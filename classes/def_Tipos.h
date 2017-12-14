@@ -1,7 +1,7 @@
 #ifndef DEFTIPOS_H 
 #define DEFTIPOS_H;
 
-class Def_Tipos {
+class Def_Tipos: public ASTNode {
 
 	public:
     	Def_Tipos() { }
