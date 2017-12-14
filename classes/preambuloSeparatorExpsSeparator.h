@@ -5,7 +5,7 @@
 #include "exps.h"
 
 
-class PreambuloSeparatorExpsSeparator {
+class PreambuloSeparatorExpsSeparator : public ASTNode{
 	
 	private:
         Preambulo *pream_;
