@@ -3,7 +3,7 @@
 
 #include "texto.h"
 
-class Includ_OpenTextoInclud_Close {
+class Includ_OpenTextoInclud_Close : public ASTNode{
 	
 	private:
     	Texto *texto_;
