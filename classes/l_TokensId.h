@@ -4,7 +4,7 @@
 #include "id.h"
 #include <string>
 
-class  L_TokensId {
+class  L_TokensId : public ASTNode{
 
     private:
 	std::string id_;
