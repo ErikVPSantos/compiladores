@@ -32,7 +32,7 @@
   #include "classes/l_TokensId.h"
   #include "classes/printVisitor.h"
   
-   ASTNode* raiz = null;
+   ASTNode* raiz = 0;
 %}
 
 %token ID
@@ -52,7 +52,20 @@
 %token L_TYPE
 %union  {
   int64_t integer;
-  std::string  strg;
+  std::string strg;
+  std::string ID;
+  Palavras palavras;
+  Bloco bloco;
+  Def_Tipos def_tipos;
+  Def_Tokens def_tokens;
+  Def_Union def_union;
+  Exps exps;
+  Includes includes;
+  Texto texto;
+  Linhas linhas;
+  Linha linha;
+  Preambulo preambulo;
+  Codigo codigo;
 }
 %type <strg> ID
 %type <Palavras> palavras
@@ -107,8 +120,6 @@ palavras: ID {$$ = new IdFolha ($1); }
 %%
 
 int main(int argc, char **argv) {
-	
-  
   root->accept(new PrintVisitor());
   return 0;
 }

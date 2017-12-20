@@ -40,35 +40,35 @@ class PrintVisitor : public Visitor
 		std::stack<std::string> att_;
 
 	public:
-		virtual void visit(Bloco* e)
-		{
-			e -> bloco() -> accept(this);
-		}
+		// virtual void visit(Bloco* e)
+		// {
+		// 	e -> bloco() -> accept(this);
+		// }
 		virtual void visit(BlocoExps* e)
 		{
-			e -> bloco() -> accept(this);
+			// e -> bloco() -> accept(this);
 			e -> exps() -> accept(this);
 		}
-		virtual void visit(Def_Tipos* e)
-		{
-			e -> def_Tipos() -> accept(this);
-		}
-		virtual void visit(Def_Tokens* e)
-		{
-			e -> def_Tokens() -> accept(this);
-		}
-		virtual void visit(Def_Union* e)
-		{
-			e -> def_Union() -> accept(this);
-		}
-		virtual void visit(Exps* e)
-		{
-			e -> exps() -> accept(this);
-		}
+		// virtual void visit(Def_Tipos* e)
+		// {
+		// 	e -> def_Tipos() -> accept(this);
+		// }
+		// virtual void visit(Def_Tokens* e)
+		// {
+		// 	e -> def_Tokens() -> accept(this);
+		// }
+		// virtual void visit(Def_Union* e)
+		// {
+		// 	e -> def_Union() -> accept(this);
+		// }
+		// virtual void visit(Exps* e)
+		// {
+		// 	e -> exps() -> accept(this);
+		// }
 		virtual void visit(IdColonLinhasSemicolon* e)
 		{
 			std::cout << "L_STRING";
-			std::cout << ":"
+			std::cout << ":";
 			e -> linhas() -> accept(this);
 			std::cout << ";";
 		}
@@ -81,18 +81,18 @@ class PrintVisitor : public Visitor
 		{
 			std::cout << "%{";
 			e -> texto() ->accept(this);
-			std::cout << "}%"
+			std::cout << "}%";
 		}
-		virtual void visit(Includes* e)
-		{
-			e -> includes() ->accept(this);
-		}
+		// virtual void visit(Includes* e)
+		// {
+		// 	e -> includes() ->accept(this);
+		// }
 		virtual void visit(IncludesDef_TokenDef_UnionDef_Tipos* e)
 		{
 			e -> includes() -> accept(this);
-			e -> def_Tokens() -> accept(this);
-			e -> def_Union() -> accept(this);
-			e -> def_Tipos() -> accept(this);
+			e -> def_token() -> accept(this);
+			e -> def_union() -> accept(this);
+			e -> def_tipos() -> accept(this);
 		}
 		virtual void visit(L_StringTexto* e)
 		{
@@ -103,14 +103,14 @@ class PrintVisitor : public Visitor
 		{
 			std::cout << "L_TOKEN";
 			std::cout << "L_STRING";
-			e -> def_Tokens() -> accept(this);
+			e -> def_tokens() -> accept(this);
 		}
 		virtual void visit(L_TypeOp_LtTextoOp_GtId* e)
 		{
 			std::cout << "L_TYPE";
 			std::cout << "<";
 			e -> texto() -> accept(this);
-			std::cout << ">"
+			std::cout << ">";
 			std::cout << "L_STRING";
 		}
 		virtual void visit(L_TypeOp_LtTextoOp_GtIdDef_Tipos* e)
@@ -118,25 +118,25 @@ class PrintVisitor : public Visitor
 			std::cout << "L_TYPE";
 			std::cout << "<";
 			e -> texto() -> accept(this);
-			std::cout << ">"
+			std::cout << ">";
 			std::cout << "L_STRING";
-			e -> def_Tipos() -> accept(this);
+			e -> def_tipos() -> accept(this);
 		}
 		virtual void visit(L_UnionC_Bracket_LeftTextoC_Bracket_Right* e)
 		{
 			std::cout << "L_UNION";
 			std::cout << "{";
 			e -> texto() -> accept(this);
-			std::cout << "}"
+			std::cout << "}";
 		}
-		virtual void visit(Linhas* e)
-		{
-			e -> linhas() -> accept(this);
-		}
+		// virtual void visit(Linhas* e)
+		// {
+		// 	e -> linhas() -> accept(this);
+		// }
 		virtual void visit(IdFolha* e)
 		{
 			std::cout << "L_STRING";
-			att.push(cout);
+			att_.push(cout);
 		}
 		virtual void visit(LinhaLinhas* e)
 		{
@@ -148,9 +148,9 @@ class PrintVisitor : public Visitor
 			e -> linha() -> accept(this);
 
 			std::string nome; // atributos concatenados
-			std::int count = att.size();
+			std::int count = att_.size();
 
-			std::stack nomeatt = att;
+			std::stack<std::string> nomeatt = att_;
 			for (int i = 0; i < count; ++i) {
 				nome += nomeatt.pop();
 			}
@@ -161,7 +161,7 @@ class PrintVisitor : public Visitor
 	        outputFile << "class " + nome + " : public ASTNode {\n";
 
 	        //Definir parâmetros de classe
-     		std::attatt = att;
+     		std::stack<std::string> attatt = att_;
 			outputFile << "\nprivate: \n";
 	        for (int i = 0; i < count; ++i) {
 	        	std::string atributo = attatt.pop();
@@ -171,7 +171,7 @@ class PrintVisitor : public Visitor
 	        //Criar construtor publico com atributos de classe
 	        outputFile << "\npublic: \n";
         	outputFile << nome + "(";
-        	std::construtoratt = att;
+        	std::stack<std::string>construtoratt = att_;
         	for (int i = 0; i < count; ++i) {
         		std::string atributo = construtoratt.pop();
         		outputFile << atributo + " *" + atributo;
@@ -184,31 +184,31 @@ class PrintVisitor : public Visitor
         		if(i != count - 1) {  cout << ", "; } 
         	}
         	outputFile << " { }\n";
-        	outputFile << "\n};"
+        	outputFile << "\n};";
 
 	        outputFile.close();
 		}
-		virtual void visit(Linha* e)
-		{
-			e -> linha() -> accept(this);
-		}
-		virtual void visit(Palavras* e)
-		{
-			e -> palavras() -> accept(this);
-		}
-		virtual void visit(Preambulo* e)
-		{
-			e -> preambulo() -> accept(this);
-		}
+		// virtual void visit(Linha* e)
+		// {
+		// 	e -> linha() -> accept(this);
+		// }
+		// virtual void visit(Palavras* e)
+		// {
+		// 	e -> palavras() -> accept(this);
+		// }
+		// virtual void visit(Preambulo* e)
+		// {
+		// 	e -> preambulo() -> accept(this);
+		// }
 		virtual void visit(PreambuloSeparatorExpsSeparator* e)
 		{
 			e -> preambulo() -> accept(this);
 			std::cout << "%%";
 			e -> exps() -> accept(this);
-			std>>cout << "%%"
+			std >> cout << "%%";
 		}
-		virtual void visit(Texto* e) {
-			e -> texto() -> accept(this);
-		}
+		// virtual void visit(Texto* e) {
+		// 	e -> texto() -> accept(this);
+		// }
 };
 #endif
