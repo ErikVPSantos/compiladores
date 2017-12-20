@@ -1,6 +1,6 @@
 %{
   #include <stdio.h>
-  #inlcude <stdlib.h> 
+  #include <stdlib.h> 
   #include "classes/palavras.h"
   #include "classes/codigo.h"
   #include "classes/idFolha.h"
@@ -32,6 +32,8 @@
   #include "classes/linhaLinhas.h"
   #include "classes/preambulo.h"
   #include "classes/l_TokensID.h"
+  #include "classes/printVisitor.h"
+  
    ASTNode* raiz = null;
 %}
 
@@ -63,7 +65,6 @@
 %type <Exps> exps
 %type <Includes> includes
 %type <Texto> texto
-%type <Palavra> palavra
 %type <Linhas> linhas
 %type <Linha> linha
 %type <Preambulo> preambulo
@@ -106,3 +107,11 @@ palavras: ID {$$ = new IDFolha ($1); }
           |ID palavras { $$ = new IdPalavras ($2); } ;
    
 %%
+
+int main(int argc, char **argv) {
+	
+  
+  root->accept(new PrintVisitor());
+  return 0;
+}
+

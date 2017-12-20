@@ -42,7 +42,7 @@ class Visitor {
     virtual ~visit(Exps  *exps) {}
     virtual ~visit(IdColonLinhasSemicolon  *idColonLinhasSemicolon ) {}
     virtual ~visit(IdPalavras  *idPalavras ) {}
-     virtual ~visit(IdFolha  *idFolha ) {}
+    virtual ~visit(IdFolha  *idFolha ) {}
     virtual ~visit(Includ_OpenTextoInclud_Open   *includ_OpenTextoInclud_Open ) {}
     virtual ~visit(Includes  *includes ) {}
     virtual ~visit(IncludesDef_TokenDef_UnionDef_Tipos *includesDef_TokenDef_UnionDef_Tipos) {}

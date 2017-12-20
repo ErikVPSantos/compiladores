@@ -1,5 +1,5 @@
 #ifndef IDFOLHA_H 
-#define IDFOLHA_H;
+#define IDFOLHA_H
 
 #include <string>
 

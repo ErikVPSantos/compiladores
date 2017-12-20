@@ -1,12 +1,10 @@
 #ifndef CODIGO_H 
-#define CODIGO_H;
-
-#include <string>
+#define CODIGO_H
 
 class Codigo : public ASTNode {
 		
 	public:
-		Codigo() : { }
+		Codigo() { }
     	virtual ~Codigo() { }
 	
 	void accept(Visitor *v) {
