@@ -1,6 +1,7 @@
 #ifndef PREAMBULOSEPARATOREXPSSEPARATOR_H
 #define PREAMBULOSEPARATOREXPSSEPARATOR_H
 
+#include "ASTNode.h"
 #include "preambulo.h"
 #include "exps.h"
 
@@ -20,9 +21,7 @@ class PreambuloSeparatorExpsSeparator : public ASTNode{
     	Exps *exps() const { return exps_; }
         Preambulo *preambulo() const { return pream_; }
 	
-	void accept(Visitor *v) {
-		v->visit(this);
-	};
+	void accept(Visitor *v);
 
 };
 

@@ -1,5 +1,7 @@
 #ifndef DEFUNION_H 
-#define DEFUNION_H;
+#define DEFUNION_H
+
+#include "ASTNode.h"
 
 class Def_Union: public ASTNode {
 
@@ -7,9 +9,7 @@ class Def_Union: public ASTNode {
     	Def_Union() { }
     	virtual ~Def_Union() { }
 	
-	void accept(Visitor *v) {
-		v->visit(this);
-	};
+	void accept(Visitor *v);
     	
 }; 
 

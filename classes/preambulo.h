@@ -1,5 +1,7 @@
 #ifndef PREAMBULO_H 
-#define PREAMBULO_H;
+#define PREAMBULO_H
+
+#include "ASTNode.h"
 
 class Preambulo : public ASTNode{
 
@@ -7,9 +9,7 @@ class Preambulo : public ASTNode{
     	Preambulo() { }
     	virtual ~Preambulo() { }
 	
-	void accept(Visitor *v) {
-		v->visit(this);
-	};
+	void accept(Visitor *v);
     	
 }; 
 

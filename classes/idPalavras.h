@@ -1,6 +1,7 @@
 #ifndef IDPALAVRAS_H 
-#define IDPALAVRAS_H;
+#define IDPALAVRAS_H
 
+#include "ASTNode.h"
 #include "palavras.h"
 #include <string>
 
@@ -19,9 +20,7 @@ class IdPalavras : public ASTNode {
     	IdPalavras(const IdPalavras& p) : id_(p.id_), palavras_(p.palavras_) { }
     	Palavras *palavras() const { return palavras_; }
 	
-	void accept(Visitor *v) {
-		v->visit(this);
-	};
+	void accept(Visitor *v);
 
 };
 

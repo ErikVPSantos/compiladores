@@ -1,5 +1,7 @@
 #ifndef DEFTOKENS_H 
-#define DEFTOKENS_H;
+#define DEFTOKENS_H
+
+#include "ASTNode.h"
 
 class Def_Tokens: public ASTNode {
 
@@ -7,9 +9,7 @@ class Def_Tokens: public ASTNode {
     	Def_Tokens() { }
     	virtual ~Def_Tokens() { }
 	
-	void accept(Visitor *v) {
-		v->visit(this);
-	};
+	void accept(Visitor *v);
     	
 }; 
 

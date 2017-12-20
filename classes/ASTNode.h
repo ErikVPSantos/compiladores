@@ -1,11 +1,14 @@
+#ifndef ASTNODE_H
+#define ASTNODE_H
+
+class Visitor;
+
 class ASTNode {
 
   public:
     ASTNode() {}
     virtual ~ASTNode() {}
   
-  void accept(Visitor *v) {
-		v->visit(this);
-	};
-    
+    virtual void accept(Visitor *v) = 0;
 }; 
+#endif

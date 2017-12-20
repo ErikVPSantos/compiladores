@@ -1,6 +1,7 @@
 #ifndef LSTRINGTEXTO_H
 #define LSTRINGTEXTO_H
 
+#include "ASTNode.h"
 #include "texto.h"
 
 class L_StringTexto : public ASTNode{
@@ -16,9 +17,7 @@ class L_StringTexto : public ASTNode{
     	L_StringTexto(const L_StringTexto& b) : texto_(b.texto_) { }
     	Texto *texto() const { return texto_; }
 	
-	void accept(Visitor *v) {
-		v->visit(this);
-	};
+	void accept(Visitor *v);
 
 };
 

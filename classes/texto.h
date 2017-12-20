@@ -1,5 +1,7 @@
 #ifndef TEXTO_H 
-#define TEXTO_H;
+#define TEXTO_H
+
+#include "ASTNode.h"
 
 class Texto : public ASTNode{
 
@@ -7,9 +9,7 @@ class Texto : public ASTNode{
     	Texto() { }
     	virtual ~Texto() { }
 	
-	void accept(Visitor *v) {
-		v->visit(this);
-	};
+	void accept(Visitor *v);
     	
 }; 
 

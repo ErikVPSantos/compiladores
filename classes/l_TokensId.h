@@ -1,8 +1,8 @@
 #ifndef LTOKENSID_H 
-#define LTOKENSID_H;
+#define LTOKENSID_H
 
-#include "id.h"
 #include <string>
+#include "ASTNode.h"
 
 class  L_TokensId : public ASTNode{
 
@@ -10,13 +10,10 @@ class  L_TokensId : public ASTNode{
 	std::string id_;
 	
 	public:
-		L_TokensId(std::string *id): id_(id) { }
-    	virtual ~L_TokensId() { }
-    	L_TokensId(const L_TokensID& l) : id_(l.id_) { }
+		L_TokensId(std::string id): id_(id) { }
+    	L_TokensId(const L_TokensId& l) : id_(l.id_) { }
 	
-	void accept(Visitor *v) {
-		v->visit(this);
-	};
+	void accept(Visitor *v);
     
 }; 
 

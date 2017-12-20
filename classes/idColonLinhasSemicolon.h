@@ -1,6 +1,7 @@
 #ifndef IDCOLONLINHASSEMICOLON_H 
-#define IDCOLONLINHASSEMICOLON_H;
+#define IDCOLONLINHASSEMICOLON_H
 
+#include "ASTNode.h"
 #include "linhas.h"
 #include <string>
 
@@ -11,16 +12,14 @@ class IdColonLinhasSemicolon: public ASTNode {
 		Linhas *linhas_;
 
  	public:
-    	IdDouble_DotsLinhasDot_Comma(std::string id, Linhas *linhas) : id_(id), linhas_(linhas) {}
-    	virtual ~IdDouble_DotsLinhasDot_Comma(){
+    	IdColonLinhasSemicolon(std::string id, Linhas *linhas) : id_(id), linhas_(linhas) {}
+    	virtual ~IdColonLinhasSemicolon(){
     		delete linhas_;
     	}
-    	IdDouble_DotsLinhasDot_Comma(const IdDouble_DotsLinhasDot_Comma& i) : id_(i.id), linhas_(i.linhas_) {}
+    	IdColonLinhasSemicolon(const IdColonLinhasSemicolon& i) : id_(i.id_), linhas_(i.linhas_) {}
     	Linhas *linhas() const { return linhas_; }
 	
-	void accept(Visitor *v) {
-		v->visit(this);
-	};
+	void accept(Visitor *v);
     
 }; 
 

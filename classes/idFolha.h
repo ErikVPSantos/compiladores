@@ -1,9 +1,10 @@
 #ifndef IDFOLHA_H 
 #define IDFOLHA_H
 
+#include "ASTNode.h"
 #include <string>
 
-class IdFolha : public ASTNode {
+class IdFolha : public ASTNode{
 
 	private:
 		std::string id_;
@@ -14,9 +15,7 @@ class IdFolha : public ASTNode {
 
     	IdFolha(const IdFolha& p) : id_(p.id_) { }
 	
-	void accept(Visitor *v) {
-		v->visit(this);
-	};
+	void accept(Visitor *v);
 
 };
 

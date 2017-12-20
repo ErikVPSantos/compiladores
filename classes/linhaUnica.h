@@ -1,6 +1,7 @@
 #ifndef LINHAUNICA_H 
-#define LINHAUNICA_H;
+#define LINHAUNICA_H
 
+#include "ASTNode.h"
 #include "linha.h"
 
 class LinhaUnica : public ASTNode{
@@ -13,12 +14,10 @@ class LinhaUnica : public ASTNode{
 		virtual ~LinhaUnica() {
 			delete linha_;
 		}
-    	LinhaUnica(cont LinhaUnica& l) : linha_(l.linha_) { }
+    	LinhaUnica(const LinhaUnica& l) : linha_(l.linha_) { }
     	Linha *linha() const { return linha_; }
 	
-	void accept(Visitor *v) {
-		v->visit(this);
-	};
+	void accept(Visitor *v);
 
 };
 

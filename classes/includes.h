@@ -1,5 +1,7 @@
 #ifndef INCLUDES_H 
-#define INCLUDES_H;
+#define INCLUDES_H
+
+#include "ASTNode.h"
 
 class Includes : public ASTNode{
 
@@ -7,9 +9,7 @@ class Includes : public ASTNode{
     	Includes() { }
     	virtual ~Includes() { }
 	
-	void accept(Visitor *v) {
-		v->visit(this);
-	};
+	void accept(Visitor *v);
     	
 }; 
 

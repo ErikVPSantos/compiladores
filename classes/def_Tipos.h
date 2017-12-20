@@ -1,5 +1,7 @@
 #ifndef DEFTIPOS_H 
-#define DEFTIPOS_H;
+#define DEFTIPOS_H
+
+#include "ASTNode.h"
 
 class Def_Tipos: public ASTNode {
 
@@ -7,9 +9,7 @@ class Def_Tipos: public ASTNode {
     	Def_Tipos() { }
     	virtual ~Def_Tipos() { }
     	
-	void accept(Visitor *v) {
-		v->visit(this);
-	};
+	void accept(Visitor *v);
 }; 
 
 #endif

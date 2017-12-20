@@ -1,5 +1,7 @@
 #ifndef	EXPS_H 
-#define EXPS_H;
+#define EXPS_H
+
+#include "ASTNode.h"
 
 class Exps: public ASTNode {
 
@@ -7,9 +9,7 @@ class Exps: public ASTNode {
     	Exps();
     	virtual ~Exps() { } 
 	
-	void accept(Visitor *v) {
-		v->visit(this);
-	};
+	void accept(Visitor *v);
     
 }; 
 

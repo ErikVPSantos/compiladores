@@ -1,52 +1,45 @@
 #ifndef PRINTVISITOR_H
 #define PRINTVISITOR_H
 
-#include <IOstream>
+#include <iostream>
 #include <stack>  
 #include <fstream>
+#include <string>
+#include "palavras.h"
+#include "idFolha.h"
+#include "bloco.h"
+#include "blocoExps.h"
+#include "def_Tipos.h"
+#include "def_Tokens.h"
+#include "def_Union.h"
+#include "exps.h"
+#include "idColonLinhasSemicolon.h"
+#include "includes.h"
+#include "ASTNode.h"
+#include "l_TypeOp_LtTextoOp_GtIdDef_Tipos.h"
+#include "idPalavras.h"
+#include "l_TokenIdDef_Tokens.h"
+#include "texto.h"
+#include "includesDef_TokenDef_UnionDef_Tipos.h"
+#include "l_UnionC_Bracket_LeftTextoC_Bracket_Right.h"
+#include "linhaUnica.h"
+#include "linhas.h"
+#include "l_TypeOp_LtTextoOp_GtId.h" 
+#include "linha.h"
+#include "l_StringTexto.h"
+#include "preambuloSeparatorExpsSeparator.h"
+#include "includ_OpenTextoInclud_Close.h"
+#include "linhaLinhas.h"
+#include "preambulo.h"
+#include "l_TokensId.h"
+#include "visitor.h"
 
 class PrintVisitor : public Visitor 
 {
 	private:
-		std::stack att_;
+		std::stack<std::string> att_;
 
 	public:
-		virtual void visit(VariablesTypesRule5* e)
-		{
-			std::cout << "string";
-		}
-		virtual void visit(VariablesTypesRule2* e)
-		{
-			std::cout << "int";
-		}
-		virtual void visit(ValuesRule5* e)
-		{
-			std::cout << "ID";
-		}
-		virtual void visit(ValuesRule4* e)
-		{
-			std::cout << "L_STRING";
-		}
-		virtual void visit(ValuesRule3* e)
-		{
-			std::cout << "L_TOKEN";
-		}
-		virtual void visit(ValuesRule2* e)
-		{
-			std::cout << "L_UNION";
-		}
-		virtual void visit(ValuesRule1* e)
-		{
-			std::cout << "L_TYPE";
-		}
-		virtual void visit(ValuesRule1* e)
-		{
-			std::cout << "PIPE";
-		}
-		virtual void visit(ValuesRule1* e)
-		{
-			std::cout << "SEPARATOR";
-		}
 		virtual void visit(Bloco* e)
 		{
 			e -> bloco() -> accept(this);
@@ -94,7 +87,7 @@ class PrintVisitor : public Visitor
 		{
 			e -> includes() ->accept(this);
 		}
-		virtual void visit(IncludeDef_TokensDef_UnionDef_Tipos* e)
+		virtual void visit(IncludesDef_TokenDef_UnionDef_Tipos* e)
 		{
 			e -> includes() -> accept(this);
 			e -> def_Tokens() -> accept(this);

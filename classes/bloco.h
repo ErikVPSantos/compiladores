@@ -1,5 +1,7 @@
 #ifndef BLOCO_H 
-#define BLOCO_H;
+#define BLOCO_H
+
+#include "ASTNode.h"
 
 class Bloco: public ASTNode {
 
@@ -7,9 +9,7 @@ class Bloco: public ASTNode {
     	Bloco() { }
     	virtual ~Bloco() { }
 	
-	void accept(Visitor *v) {
-		v->visit(this);
-	};
+	void accept(Visitor *v);
     	
 }; 
 

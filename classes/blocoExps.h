@@ -1,6 +1,7 @@
 #ifndef BLOCOEXPS_H
 #define BLOCOEXPS_H
 
+#include "ASTNode.h"
 #include "exps.h"
 
 class BlocoExps: public ASTNode {
@@ -16,9 +17,7 @@ class BlocoExps: public ASTNode {
     	BlocoExps(const BlocoExps& b) : exps_(b.exps_) { }
     	Exps *exps() const { return exps_; }
 	
-	void accept(Visitor *v) {
-		v->visit(this);
-	};
+	void accept(Visitor *v);
 
 };
 

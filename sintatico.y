@@ -7,31 +7,29 @@
   #include "classes/bloco.h"
   #include "classes/blocoExps.h"
   #include "classes/def_Tipos.h"
-  #include "classes/Def_Tokens.h"
-  #include "classes/Def_Union.h"
+  #include "classes/def_Tokens.h"
+  #include "classes/def_Union.h"
   #include "classes/exps.h"
   #include "classes/idColonLinhasSemicolon.h"
   #include "classes/idPalavras.h"
-  #include "classes/Def_Union.h"
   #include "classes/includes.h"
   #include "classes/ASTNode.h"
-  #include "classes/l_TypeOp_LTTextoOp_GtIdDef_Tipos.h"
+  #include "classes/l_TypeOp_LtTextoOp_GtIdDef_Tipos.h"
   #include "classes/idPalavras.h"
   #include "classes/l_TokenIdDef_Tokens.h"
   #include "classes/texto.h"
   #include "classes/includesDef_TokenDef_UnionDef_Tipos.h"
-  #include "classes/palavra.h"
-  #include "classes/l_UnionC_Bracket_LeftTextoC_Bracket_Right"
+  #include "classes/l_UnionC_Bracket_LeftTextoC_Bracket_Right.h"
   #include "classes/linhaUnica.h"
   #include "classes/linhas.h"
-  #include "classes/l_TypeOp_LTTextoOp_GtId" 
+  #include "classes/l_TypeOp_LtTextoOp_GtId.h" 
   #include "classes/linha.h"
   #include "classes/l_StringTexto.h"
   #include "classes/preambuloSeparatorExpsSeparator.h"
   #include "classes/includ_OpenTextoInclud_Close.h"
   #include "classes/linhaLinhas.h"
   #include "classes/preambulo.h"
-  #include "classes/l_TokensID.h"
+  #include "classes/l_TokensId.h"
   #include "classes/printVisitor.h"
   
    ASTNode* raiz = null;
@@ -54,7 +52,7 @@
 %token L_TYPE
 %union  {
   int64_t integer;
-  std: string  strg;
+  std::string  strg;
 }
 %type <strg> ID
 %type <Palavras> palavras
@@ -103,7 +101,7 @@ linhas: linha {$$ = new LinhaUnica($1); }
 linha: palavras {$$ = $1; }                          
        |PIPE palavras { $$ = new PipePalavras($2); } ; 
                    
-palavras: ID {$$ = new IDFolha ($1); }
+palavras: ID {$$ = new IdFolha ($1); }
           |ID palavras { $$ = new IdPalavras ($2); } ;
    
 %%

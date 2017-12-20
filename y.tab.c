@@ -122,7 +122,7 @@
   #include "classes/Def_Union.h"
   #include "classes/includes.h"
   #include "classes/ASTNode.h"
-  #include "classes/l_TypeOp_LTTextoOp_GtIdDef_Tipos.h"
+  #include "classes/l_TypeOp_LtTextoOp_GtIdDef_Tipos.h"
   #include "classes/idPalavras.h"
   #include "classes/l_TokenIdDef_Tokens.h"
   #include "classes/texto.h"
@@ -131,7 +131,7 @@
   #include "classes/l_UnionC_Bracket_LeftTextoC_Bracket_Right"
   #include "classes/linhaUnica.h"
   #include "classes/linhas.h"
-  #include "classes/l_TypeOp_LTTextoOp_GtId" 
+  #include "classes/l_TypeOp_LtTextoOp_GtId" 
   #include "classes/linha.h"
   #include "classes/l_StringTexto.h"
   #include "classes/preambuloSeparatorExpsSeparator.h"
@@ -1449,7 +1449,7 @@ yyreduce:
 
   case 12:
 #line 92 "sintatico.y"
-    { (yyval.Def_Tipos) = new L_TypeOp_LTTextoOp_GtIdDef_Tipos ((yyvsp[(3) - (6)].Texto),(yyvsp[(6) - (6)].Def_Tipos)); }
+    { (yyval.Def_Tipos) = new L_TypeOp_LtTextoOp_GtIdDef_Tipos ((yyvsp[(3) - (6)].Texto),(yyvsp[(6) - (6)].Def_Tipos)); }
     break;
 
   case 13:

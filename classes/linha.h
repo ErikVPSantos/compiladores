@@ -1,6 +1,7 @@
 #ifndef LINHA_H 
-#define LINHA_H;
+#define LINHA_H
 
+#include "ASTNode.h"
 #include "linhas.h"
 
 class Linha : public ASTNode{
@@ -9,9 +10,7 @@ class Linha : public ASTNode{
     Linha() {}
     virtual ~Linha() {}
   
-    void accept(Visitor *v) {
-		  v->visit(this);
-  	};
+  void accept(Visitor *v);
     
 }; 
 

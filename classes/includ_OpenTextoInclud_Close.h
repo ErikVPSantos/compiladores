@@ -1,6 +1,7 @@
 #ifndef INCLUDOPENTEXTOINCLUDCLOSE_H
 #define INCLUDOPENTEXTOINCLUDCLOSE_H
 
+#include "ASTNode.h"
 #include "texto.h"
 
 class Includ_OpenTextoInclud_Close : public ASTNode{
@@ -16,9 +17,7 @@ class Includ_OpenTextoInclud_Close : public ASTNode{
     	Includ_OpenTextoInclud_Close(const Includ_OpenTextoInclud_Close& b) : texto_(b.texto_) { }
     	Texto *texto() const { return texto_; }
 	
-	void accept(Visitor *v) {
-		v->visit(this);
-	};
+	void accept(Visitor *v);
 
 };
 
