@@ -33,6 +33,7 @@
 #include "preambulo.h"
 #include "l_TokensId.h"
 #include "visitor.h"
+using namespace std;
 
 class PrintVisitor : public Visitor 
 {
@@ -136,7 +137,7 @@ class PrintVisitor : public Visitor
 		virtual void visit(IdFolha* e)
 		{
 			std::cout << "L_STRING";
-			att_.push(cout);
+			att_.push(e);
 		}
 		virtual void visit(LinhaLinhas* e)
 		{

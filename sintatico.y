@@ -1,6 +1,7 @@
 %{
   #include <stdio.h>
   #include <stdlib.h> 
+  #include <string>
   #include "classes/palavras.h"
   #include "classes/codigo.h"
   #include "classes/idFolha.h"
@@ -51,9 +52,7 @@
 %token SEPARATOR
 %token L_TYPE
 %union  {
-  int64_t integer;
-  std::string strg;
-  std::string ID;
+  std::string id;
   Palavras palavras;
   Bloco bloco;
   Def_Tipos def_tipos;
@@ -67,19 +66,19 @@
   Preambulo preambulo;
   Codigo codigo;
 }
-%type <strg> ID
-%type <Palavras> palavras
-%type <Bloco> bloco
-%type <Def_Tipos> def_tipos
-%type <Def_Tokens> def_tokens
-%type <Def_Union> def_union
-%type <Exps> exps
-%type <Includes> includes
-%type <Texto> texto
-%type <Linhas> linhas
-%type <Linha> linha
-%type <Preambulo> preambulo
-%type <Codigo> codigo
+%type <id> ID
+%type <palavras> palavras
+%type <bloco> bloco
+%type <def_tipos> def_tipos
+%type <def_tokens> def_tokens
+%type <def_union> def_union
+%type <exps> exps
+%type <includes> includes
+%type <texto> texto
+%type <linhas> linhas
+%type <linha> linha
+%type <preambulo> preambulo
+%type <codigo> codigo
 
 %%
 inicio : codigo { raiz = $1; };
