@@ -108,6 +108,7 @@
 
   #include <stdio.h>
   #include <stdlib.h> 
+  #include <string>
   #include "classes/palavras.h"
   #include "classes/codigo.h"
   #include "classes/idFolha.h"
@@ -162,11 +163,9 @@
 
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 typedef union YYSTYPE
-#line 53 "sintatico.y"
+#line 54 "sintatico.y"
 {
-  int64_t integer;
-  std::string strg;
-  std::string ID;
+  std::string id;
   Palavras palavras;
   Bloco bloco;
   Def_Tipos def_tipos;
@@ -181,7 +180,7 @@ typedef union YYSTYPE
   Codigo codigo;
 }
 /* Line 193 of yacc.c.  */
-#line 185 "sintatico.cpp"
+#line 184 "sintatico.cpp"
 	YYSTYPE;
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */
 # define YYSTYPE_IS_DECLARED 1
@@ -194,7 +193,7 @@ typedef union YYSTYPE
 
 
 /* Line 216 of yacc.c.  */
-#line 198 "sintatico.cpp"
+#line 197 "sintatico.cpp"
 
 #ifdef short
 # undef short
@@ -486,9 +485,9 @@ static const yytype_int8 yyrhs[] =
 /* YYRLINE[YYN] -- source line where rule number YYN was defined.  */
 static const yytype_uint8 yyrline[] =
 {
-       0,    85,    85,    87,    89,    91,    93,    94,    96,    97,
-      99,   102,   103,   106,   107,   109,   111,   112,   114,   115,
-     117,   118
+       0,    84,    84,    86,    88,    90,    92,    93,    95,    96,
+      98,   101,   102,   105,   106,   108,   110,   111,   113,   114,
+     116,   117
 };
 #endif
 
@@ -1414,103 +1413,103 @@ yyreduce:
   switch (yyn)
     {
         case 2:
-#line 85 "sintatico.y"
-    { raiz = (yyvsp[(1) - (1)].Codigo); ;}
+#line 84 "sintatico.y"
+    { raiz = (yyvsp[(1) - (1)].codigo); ;}
     break;
 
   case 3:
-#line 87 "sintatico.y"
-    { (yyval.Codigo) = new PreambuloSeparatorExpsSeparator((yyvsp[(1) - (4)].Preambulo), (yyvsp[(3) - (4)].Exps));;}
+#line 86 "sintatico.y"
+    { (yyval.codigo) = new PreambuloSeparatorExpsSeparator((yyvsp[(1) - (4)].preambulo), (yyvsp[(3) - (4)].exps));;}
     break;
 
   case 4:
-#line 89 "sintatico.y"
-    { (yyval.Preambulo) = new IncludesDef_TokenDef_UnionDef_Tipos((yyvsp[(1) - (4)].Includes),(yyvsp[(2) - (4)].Def_Tokens),(yyvsp[(3) - (4)].Def_Union),(yyvsp[(4) - (4)].Def_Tipos)); ;}
+#line 88 "sintatico.y"
+    { (yyval.preambulo) = new IncludesDef_TokenDef_UnionDef_Tipos((yyvsp[(1) - (4)].includes),(yyvsp[(2) - (4)].def_tokens),(yyvsp[(3) - (4)].def_union),(yyvsp[(4) - (4)].def_tipos)); ;}
     break;
 
   case 5:
-#line 91 "sintatico.y"
-    { (yyval.Includes) = new Includ_OpenTextoInclud_Open((yyvsp[(2) - (3)].Texto));;}
+#line 90 "sintatico.y"
+    { (yyval.includes) = new Includ_OpenTextoInclud_Open((yyvsp[(2) - (3)].texto));;}
     break;
 
   case 7:
-#line 94 "sintatico.y"
-    { (yyval.Texto) = new L_StringTexto((yyvsp[(2) - (2)].Texto));;}
+#line 93 "sintatico.y"
+    { (yyval.texto) = new L_StringTexto((yyvsp[(2) - (2)].texto));;}
     break;
 
   case 8:
-#line 96 "sintatico.y"
-    { (yyval.Def_Tokens) = new L_TokenId ((yyvsp[(2) - (2)].strg));;}
+#line 95 "sintatico.y"
+    { (yyval.def_tokens) = new L_TokenId ((yyvsp[(2) - (2)].id));;}
     break;
 
   case 9:
-#line 97 "sintatico.y"
-    { (yyval.Def_Tokens) = new L_TokenIdDef_Tokens ((yyvsp[(3) - (3)].Def_Tokens)); ;}
+#line 96 "sintatico.y"
+    { (yyval.def_tokens) = new L_TokenIdDef_Tokens ((yyvsp[(3) - (3)].def_tokens)); ;}
     break;
 
   case 10:
-#line 99 "sintatico.y"
-    { (yyval.Def_Union) = new L_UnionC_Bracket_LeftTextoC_Bracket_Right((yyvsp[(3) - (4)].Texto)); ;}
+#line 98 "sintatico.y"
+    { (yyval.def_union) = new L_UnionC_Bracket_LeftTextoC_Bracket_Right((yyvsp[(3) - (4)].texto)); ;}
     break;
 
   case 11:
-#line 102 "sintatico.y"
-    { (yyval.Def_Tipos) = new L_TypeOp_LtTextoOp_GtId((yyvsp[(3) - (5)].Texto));;}
+#line 101 "sintatico.y"
+    { (yyval.def_tipos) = new L_TypeOp_LtTextoOp_GtId((yyvsp[(3) - (5)].texto));;}
     break;
 
   case 12:
-#line 103 "sintatico.y"
-    { (yyval.Def_Tipos) = new L_TypeOp_LTTextoOp_GtIdDef_Tipos ((yyvsp[(3) - (6)].Texto),(yyvsp[(6) - (6)].Def_Tipos)); ;}
+#line 102 "sintatico.y"
+    { (yyval.def_tipos) = new L_TypeOp_LTTextoOp_GtIdDef_Tipos ((yyvsp[(3) - (6)].texto),(yyvsp[(6) - (6)].def_tipos)); ;}
     break;
 
   case 13:
-#line 106 "sintatico.y"
-    { (yyval.Exps) = (yyvsp[(1) - (1)].Bloco); ;}
+#line 105 "sintatico.y"
+    { (yyval.exps) = (yyvsp[(1) - (1)].bloco); ;}
     break;
 
   case 14:
-#line 107 "sintatico.y"
-    { (yyval.Exps) = new BlocoExps ((yyvsp[(1) - (2)].Bloco), (yyvsp[(2) - (2)].Exps)); ;}
+#line 106 "sintatico.y"
+    { (yyval.exps) = new BlocoExps ((yyvsp[(1) - (2)].bloco), (yyvsp[(2) - (2)].exps)); ;}
     break;
 
   case 15:
-#line 109 "sintatico.y"
+#line 108 "sintatico.y"
     {/* $$ = new IdColonLinhasSemicolon($3); */;}
     break;
 
   case 16:
-#line 111 "sintatico.y"
-    {(yyval.Linhas) = new LinhaUnica((yyvsp[(1) - (1)].Linha)); ;}
+#line 110 "sintatico.y"
+    {(yyval.linhas) = new LinhaUnica((yyvsp[(1) - (1)].linha)); ;}
     break;
 
   case 17:
-#line 112 "sintatico.y"
-    {(yyval.Linhas) = new LinhaLinhas ((yyvsp[(2) - (2)].Linhas));;}
+#line 111 "sintatico.y"
+    {(yyval.linhas) = new LinhaLinhas ((yyvsp[(2) - (2)].linhas));;}
     break;
 
   case 18:
-#line 114 "sintatico.y"
-    {(yyval.Linha) = (yyvsp[(1) - (1)].Palavras); ;}
+#line 113 "sintatico.y"
+    {(yyval.linha) = (yyvsp[(1) - (1)].palavras); ;}
     break;
 
   case 19:
-#line 115 "sintatico.y"
-    { (yyval.Linha) = new PipePalavras((yyvsp[(2) - (2)].Palavras)); ;}
+#line 114 "sintatico.y"
+    { (yyval.linha) = new PipePalavras((yyvsp[(2) - (2)].palavras)); ;}
     break;
 
   case 20:
-#line 117 "sintatico.y"
-    {(yyval.Palavras) = new IdFolha ((yyvsp[(1) - (1)].strg)); ;}
+#line 116 "sintatico.y"
+    {(yyval.palavras) = new IdFolha ((yyvsp[(1) - (1)].id)); ;}
     break;
 
   case 21:
-#line 118 "sintatico.y"
-    { (yyval.Palavras) = new IdPalavras ((yyvsp[(2) - (2)].Palavras)); ;}
+#line 117 "sintatico.y"
+    { (yyval.palavras) = new IdPalavras ((yyvsp[(2) - (2)].palavras)); ;}
     break;
 
 
 /* Line 1267 of yacc.c.  */
-#line 1514 "sintatico.cpp"
+#line 1513 "sintatico.cpp"
       default: break;
     }
   YY_SYMBOL_PRINT ("-> $$ =", yyr1[yyn], &yyval, &yyloc);
@@ -1724,7 +1723,7 @@ yyreturn:
 }
 
 
-#line 120 "sintatico.y"
+#line 119 "sintatico.y"
 
 
 int main(int argc, char **argv) {

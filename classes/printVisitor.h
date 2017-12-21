@@ -153,7 +153,8 @@ class PrintVisitor : public Visitor
 
 			std::stack<std::string> nomeatt = att_;
 			for (int i = 0; i < count; ++i) {		
-				nome += nomeatt.pop();
+				nome = nome + nomeatt.top();
+				nomeatt.pop();
 			}
 
 			//Abrir arquivo
@@ -165,8 +166,9 @@ class PrintVisitor : public Visitor
      		std::stack<std::string> attatt = att_;
 			outputFile << "\nprivate: \n";
 	        for (int i = 0; i < count; ++i) {
-	        	std::string atributo = attatt.pop();
+	        	std::string atributo = attatt.top();
 	        	outputFile << atributo + " *" + atributo + "_;\n";
+				attatt.pop();
 	        }
 	        
 	        //Criar construtor publico com atributos de classe
@@ -174,13 +176,16 @@ class PrintVisitor : public Visitor
         	outputFile << nome + "(";
         	std::stack<std::string>construtoratt = att_;
         	for (int i = 0; i < count; ++i) {
-        		std::string atributo = construtoratt.pop();
+        		std::string atributo = construtoratt.top();
+				construtoratt.pop();
         		outputFile << atributo + " *" + atributo;
         		if(i != count - 1) {  cout << ", "; } 
         	}
+			std::stack<std::string>construtorattatt = att_;
         	cout << ") : ";
         	for (int i = 0; i < count; ++i) {
-        		std::string atributo = construtoratt.pop();
+        		std::string atributo = construtorattatt.top();
+				construtorattatt.pop();
         		outputFile << atributo + "_(" + atributo + ")";
         		if(i != count - 1) {  cout << ", "; } 
         	}
