@@ -32,8 +32,15 @@
   #include "classes/preambulo.h"
   #include "classes/l_TokensId.h"
   #include "classes/printVisitor.h"
+  #include "classes/pipePalavras.h"
   
-   ASTNode* raiz = 0;
+   extern int yylex();
+
+   int yyerror(const char *error) {
+     printf("Erro: %s\n", error);
+     exit(1);
+   }
+   ASTNode* root = 0;
 %}
 
 %token ID
@@ -52,19 +59,19 @@
 %token SEPARATOR
 %token L_TYPE
 %union  {
-  std::string id;
-  Palavras palavras;
-  Bloco bloco;
-  Def_Tipos def_tipos;
-  Def_Tokens def_tokens;
-  Def_Union def_union;
-  Exps exps;
-  Includes includes;
-  Texto texto;
-  Linhas linhas;
-  Linha linha;
-  Preambulo preambulo;
-  Codigo codigo;
+  std::string *id;
+  Palavras *palavras;
+  Bloco *bloco;
+  Def_Tipos *def_tipos;
+  Def_Tokens *def_tokens;
+  Def_Union *def_union;
+  Exps *exps;
+  Includes *includes;
+  Texto *texto;
+  Linhas *linhas;
+  Linha *linha;
+  Preambulo *preambulo;
+  Codigo *codigo;
 }
 %type <id> ID
 %type <palavras> palavras
@@ -81,25 +88,25 @@
 %type <codigo> codigo
 
 %%
-inicio : codigo { raiz = $1; };
+inicio : codigo { root = $1; };
 
-codigo: preambulo  SEPARATOR exps SEPARATOR { $$ = new PreambuloSeparatorExpsSeparator($1, $3);};
+codigo: preambulo SEPARATOR exps SEPARATOR { $$ = new PreambuloSeparatorExpsSeparator($1, $3);};
 
 preambulo: includes def_tokens def_union def_tipos { $$ = new IncludesDef_TokenDef_UnionDef_Tipos($1,$2,$3,$4); };
            
-includes: INCLUD_OPEN texto INCLUD_CLOSE { $$ = new Includ_OpenTextoInclud_Open($2);};
+includes: INCLUD_OPEN texto INCLUD_CLOSE { $$ = new Includ_OpenTextoInclud_Close($2);};
 
 texto: L_STRING
      | L_STRING texto { $$ = new L_StringTexto($2);};
 
-def_tokens: L_TOKEN ID { $$ = new L_TokenId ($2);}
-            | L_TOKEN ID def_tokens { $$ = new L_TokenIdDef_Tokens ($3); };
+def_tokens: L_TOKEN ID { $$ = new L_TokensId (*($2));}
+            | L_TOKEN ID def_tokens { $$ = new L_TokenIdDef_Tokens (*($2), $3); };
                   
 def_union: L_UNION C_BRACKET_LEFT texto C_BRACKET_RIGHT { $$ = new L_UnionC_Bracket_LeftTextoC_Bracket_Right($3); }  
            ;
 
-def_tipos: L_TYPE OP_LT texto OP_GT ID { $$ = new L_TypeOp_LtTextoOp_GtId($3);}  
-           | L_TYPE OP_LT texto OP_GT ID def_tipos { $$ = new L_TypeOp_LTTextoOp_GtIdDef_Tipos ($3,$6); }  
+def_tipos: L_TYPE OP_LT texto OP_GT ID { $$ = new L_TypeOp_LtTextoOp_GtId($3, *($5));}  
+           | L_TYPE OP_LT texto OP_GT ID def_tipos { $$ = new L_TypeOp_LtTextoOp_GtIdDef_Tipos ($3,*($5),$6); }  
            ;
                              
 exps: bloco { $$ = $1; }                                 
@@ -108,18 +115,37 @@ exps: bloco { $$ = $1; }
 bloco: ID COLON linhas SEMICOLON {/* $$ = new IdColonLinhasSemicolon($3); */};
 
 linhas: linha {$$ = new LinhaUnica($1); }                               
-        |linha linhas {$$ = new LinhaLinhas ($2);};
+        |linha linhas {$$ = new LinhaLinhas ($1, $2);};
 
 linha: palavras {$$ = $1; }                          
        |PIPE palavras { $$ = new PipePalavras($2); } ; 
                    
-palavras: ID {$$ = new IdFolha ($1); }
-          |ID palavras { $$ = new IdPalavras ($2); } ;
+palavras: ID {$$ = new IdFolha (*($1)); }
+          |ID palavras { $$ = new IdPalavras (*($1), $2); } ;
    
 %%
 
 int main(int argc, char **argv) {
+	extern FILE *yyin;
+	if(argc != 2) {
+		printf("Uso: %s arquivo_de_entrada\n", argv[0]);
+		return 1;
+	}
+	
+	if ((yyin = fopen(argv[1], "r")) == NULL) {
+		fprintf(stderr, "Erro ao tentar abrir o arquivo %s!\n", argv[1]);
+		return 1;
+	}
+	
+	if (yyparse()) {
+		fprintf(stderr, "Não foi possível compilar %s!\n", argv[1]);
+		return 1;
+	}
+  
   root->accept(new PrintVisitor());
   return 0;
 }
+
+
+
 

@@ -2,12 +2,13 @@
 #define INCLUDESDEFTOKENDEFUNIONDEFTIPOS_H
 
 #include "ASTNode.h"
+#include "preambulo.h"
 #include "includes.h"
 #include "def_Tokens.h"
 #include "def_Union.h"
 #include "def_Tipos.h"
 
-class IncludesDef_TokenDef_UnionDef_Tipos : public ASTNode{
+class IncludesDef_TokenDef_UnionDef_Tipos : public Preambulo{
 	
 	private:
         Includes *inc_;

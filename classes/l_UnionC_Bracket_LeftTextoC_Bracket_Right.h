@@ -2,9 +2,10 @@
 #define LUNIONCBRACKETLEFTTEXTOCBRACKETRIGHT_H
 
 #include "ASTNode.h"
+#include "def_Union.h"
 #include "texto.h"
 
-class  L_UnionC_Bracket_LeftTextoC_Bracket_Right : public ASTNode{
+class  L_UnionC_Bracket_LeftTextoC_Bracket_Right : public Def_Union{
 
     private:
     	Texto *texto_;

@@ -28,6 +28,8 @@
 #include "linhaLinhas.h"
 #include "preambulo.h"
 #include "l_TokensId.h"
+#include "pipePalavras.h"
+
 
 
 class Visitor {
@@ -59,6 +61,7 @@ class Visitor {
     virtual void visit(Preambulo    *preambulo  ) = 0;
     virtual void visit(PreambuloSeparatorExpsSeparator    *preambuloSeparatorExpsSeparator   ) = 0;
     virtual void visit(Texto    *texto   ) = 0;
+    virtual void visit(PipePalavras    *pipePalavras   ) = 0;
     
 }; 
 

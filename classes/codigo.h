@@ -6,10 +6,8 @@
 class Codigo : public ASTNode {
 		
 	public:
-		Codigo() { }
+		explicit Codigo() {}
     	virtual ~Codigo() { }
-	
-	void accept(Visitor *v);
 
 };
 

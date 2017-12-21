@@ -9,7 +9,7 @@ class Def_Tipos: public ASTNode {
     	Def_Tipos() { }
     	virtual ~Def_Tipos() { }
     	
-	void accept(Visitor *v);
+		void accept(Visitor *v);
 }; 
 
 #endif

@@ -3,8 +3,9 @@
 
 #include <string>
 #include "ASTNode.h"
+#include "def_Tokens.h"
 
-class  L_TokensId : public ASTNode{
+class  L_TokensId : public Def_Tokens{
 
     private:
 	std::string id_;

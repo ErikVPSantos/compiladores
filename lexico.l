@@ -31,8 +31,10 @@
 ";"  		{ return SEMICOLON; }
 
 [\r\n ] {}
-"% token"	{ return L_TOKEN; }
-"% union"	{ return L_UNION; }
-"% type"	{ return L_TYPE; }
+"%token"	{ return L_TOKEN; }
+"%union"	{ return L_UNION; }
+"%type"	{ return L_TYPE; }
 \"([^"]|\\[ntar"]*)*\" { return L_STRING; }
+. {}
+
 %%

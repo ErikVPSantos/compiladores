@@ -4,7 +4,7 @@
 #include "ASTNode.h"
 #include "texto.h"
 
-class L_StringTexto : public ASTNode{
+class L_StringTexto : public Texto{
 	
 	private:
     	Texto *texto_;

@@ -6,7 +6,7 @@
 class Exps: public ASTNode {
 
 	public:
-    	Exps();
+    	Exps() {}
     	virtual ~Exps() { } 
 	
 	void accept(Visitor *v);

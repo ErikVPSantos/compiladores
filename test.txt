@@ -1,13 +1,14 @@
-exps: bloco 
-     |bloco PARAGRAPH exps;
-
-bloco: nome_bloco DOUBLE_DOTS linhas DOT_COMMA;
-
-linhas: linha
-        |linha linhas;
-
-linha: palavras
-      |PIPE palavras;
-                   
-palavras: palavras
-         |ID
+%{
+  #include <stdio.h>
+  #include <stdlib.h>
+%}
+%token ID
+%token L_STRING
+%token OP_GT
+%token OP_LT
+%union  {
+  std::string *id;
+}
+%type <id> ID
+exps: bloco | bloco exps; 
+%%

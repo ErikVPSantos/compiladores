@@ -2,9 +2,10 @@
 #define INCLUDOPENTEXTOINCLUDCLOSE_H
 
 #include "ASTNode.h"
+#include "includes.h"
 #include "texto.h"
 
-class Includ_OpenTextoInclud_Close : public ASTNode{
+class Includ_OpenTextoInclud_Close : public Includes{
 	
 	private:
     	Texto *texto_;

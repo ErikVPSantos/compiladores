@@ -9,7 +9,7 @@ class Preambulo : public ASTNode{
     	Preambulo() { }
     	virtual ~Preambulo() { }
 	
-	void accept(Visitor *v);
+		void accept(Visitor *v);
     	
 }; 
 

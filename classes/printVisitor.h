@@ -32,6 +32,7 @@
 #include "linhaLinhas.h"
 #include "preambulo.h"
 #include "l_TokensId.h"
+#include "pipePalavras.h"
 #include "visitor.h"
 using namespace std;
 
@@ -39,33 +40,34 @@ class PrintVisitor : public Visitor
 {
 	private:
 		std::stack<std::string> att_;
+		std::stack<std::string> concat_;
 
 	public:
-		// virtual void visit(Bloco* e)
-		// {
+		virtual void visit(Bloco* e)
+		{
 		// 	e -> bloco() -> accept(this);
-		// }
+		}
 		virtual void visit(BlocoExps* e)
 		{
 			// e -> bloco() -> accept(this);
 			e -> exps() -> accept(this);
 		}
-		// virtual void visit(Def_Tipos* e)
-		// {
+		virtual void visit(Def_Tipos* e)
+		{
 		// 	e -> def_Tipos() -> accept(this);
-		// }
-		// virtual void visit(Def_Tokens* e)
-		// {
+		}
+		virtual void visit(Def_Tokens* e)
+		{
 		// 	e -> def_Tokens() -> accept(this);
-		// }
-		// virtual void visit(Def_Union* e)
-		// {
+		}
+		virtual void visit(Def_Union* e)
+		{
 		// 	e -> def_Union() -> accept(this);
-		// }
-		// virtual void visit(Exps* e)
-		// {
+		}
+		virtual void visit(Exps* e)
+		{
 		// 	e -> exps() -> accept(this);
-		// }
+		}
 		virtual void visit(IdColonLinhasSemicolon* e)
 		{
 			std::cout << "L_STRING";
@@ -84,10 +86,10 @@ class PrintVisitor : public Visitor
 			e -> texto() ->accept(this);
 			std::cout << "}%";
 		}
-		// virtual void visit(Includes* e)
-		// {
+		virtual void visit(Includes* e)
+		{
 		// 	e -> includes() ->accept(this);
-		// }
+		}
 		virtual void visit(IncludesDef_TokenDef_UnionDef_Tipos* e)
 		{
 			e -> includes() -> accept(this);
@@ -105,6 +107,11 @@ class PrintVisitor : public Visitor
 			std::cout << "L_TOKEN";
 			std::cout << "L_STRING";
 			e -> def_tokens() -> accept(this);
+		}
+		virtual void visit(L_TokensId* e)
+		{
+			std::cout << "L_TOKEN";
+			std::cout << "L_STRING";
 		}
 		virtual void visit(L_TypeOp_LtTextoOp_GtId* e)
 		{
@@ -130,10 +137,10 @@ class PrintVisitor : public Visitor
 			e -> texto() -> accept(this);
 			std::cout << "}";
 		}
-		// virtual void visit(Linhas* e)
-		// {
+		virtual void visit(Linhas* e)
+		{
 		// 	e -> linhas() -> accept(this);
-		// }
+		}
 		virtual void visit(IdFolha* e)
 		{
 			std::cout << "L_STRING";
@@ -157,10 +164,11 @@ class PrintVisitor : public Visitor
 				nomeatt.pop();
 			}
 
-			//Abrir arquivo
-			std::ofstream outputFile;
-			outputFile.open(nome + ".h");
-	        outputFile << "class " + nome + " : public ASTNode {\n";
+			// //Abrir arquivo
+			 std::ofstream outputFile;
+			 nome = nome + ".h";
+			 outputFile.open(nome.c_str());
+	         outputFile << "class " + nome + " : public ASTNode {\n";
 
 	        //Definir parâmetros de classe
      		std::stack<std::string> attatt = att_;
@@ -192,20 +200,20 @@ class PrintVisitor : public Visitor
         	outputFile << " { }\n";
         	outputFile << "\n};";
 
-	        outputFile.close();
+	        // outputFile.close();
 		}
-		// virtual void visit(Linha* e)
-		// {
+		virtual void visit(Linha* e)
+		{
 		// 	e -> linha() -> accept(this);
-		// }
-		// virtual void visit(Palavras* e)
-		// {
+		}
+		virtual void visit(Palavras* e)
+		{
 		// 	e -> palavras() -> accept(this);
-		// }
-		// virtual void visit(Preambulo* e)
-		// {
+		}
+		virtual void visit(Preambulo* e)
+		{
 		// 	e -> preambulo() -> accept(this);
-		// }
+		}
 		virtual void visit(PreambuloSeparatorExpsSeparator* e)
 		{
 			e -> preambulo() -> accept(this);
@@ -213,8 +221,13 @@ class PrintVisitor : public Visitor
 			e -> exps() -> accept(this);
 			std::cout << "%%";
 		}
-		// virtual void visit(Texto* e) {
-		// 	e -> texto() -> accept(this);
-		// }
+		virtual void visit(Texto* e) {
+			// e -> texto() -> accept(this);
+		}
+
+		virtual void visit(PipePalavras* e)
+		{
+			e -> palavras() -> accept(this);
+		}
 };
 #endif

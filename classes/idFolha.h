@@ -3,8 +3,9 @@
 
 #include "ASTNode.h"
 #include <string>
+#include "palavras.h"
 
-class IdFolha : public ASTNode{
+class IdFolha : public Palavras{
 
 	private:
 		std::string id_;

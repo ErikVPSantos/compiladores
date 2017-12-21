@@ -2,9 +2,10 @@
 #define LINHAUNICA_H
 
 #include "ASTNode.h"
+#include "linhas.h"
 #include "linha.h"
 
-class LinhaUnica : public ASTNode{
+class LinhaUnica : public Linhas{
 
 	private:
 		Linha *linha_;

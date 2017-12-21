@@ -6,7 +6,7 @@
 #include "texto.h"
 #include "def_Tipos.h"
 
-class L_TypeOp_LtTextoOp_GtIdDef_Tipos : public ASTNode{
+class L_TypeOp_LtTextoOp_GtIdDef_Tipos : public Def_Tipos{
 	
 	private:
         std::string id_;
@@ -14,8 +14,8 @@ class L_TypeOp_LtTextoOp_GtIdDef_Tipos : public ASTNode{
         Def_Tipos *defTp_;
         
 	public:
-    	L_TypeOp_LtTextoOp_GtIdDef_Tipos(std::string id, Texto *texto, Def_Tipos *defTp) : id_(id), texto_(texto), defTp_(defTp) { }
-    	L_TypeOp_LtTextoOp_GtIdDef_Tipos(const L_TypeOp_LtTextoOp_GtIdDef_Tipos& t) : id_(t.id_), texto_(t.texto_), defTp_(t.defTp_) { }
+    	L_TypeOp_LtTextoOp_GtIdDef_Tipos(Texto *texto, std::string id, Def_Tipos *defTp) : texto_(texto), id_(id), defTp_(defTp) { }
+    	L_TypeOp_LtTextoOp_GtIdDef_Tipos(const L_TypeOp_LtTextoOp_GtIdDef_Tipos& t) : texto_(t.texto_),id_(t.id_), defTp_(t.defTp_) { }
         Texto *texto() const { return texto_; }
         Def_Tipos *def_tipos() const { return defTp_; }
 	

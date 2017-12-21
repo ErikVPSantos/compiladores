@@ -5,7 +5,7 @@
 #include "linhas.h"
 #include "linha.h"
 
-class LinhaLinhas : public ASTNode{
+class LinhaLinhas : public Linhas{
 
 	private:
 		Linha *linha_;

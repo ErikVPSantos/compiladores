@@ -2,15 +2,16 @@
 #define BLOCO_H
 
 #include "ASTNode.h"
+#include "exps.h"
 
-class Bloco: public ASTNode {
+class Bloco: public Exps {
 
 	public:
     	Bloco() { }
     	virtual ~Bloco() { }
-	
-	void accept(Visitor *v);
-    	
+
+		void accept(Visitor *v);
+		    	
 }; 
 
 #endif

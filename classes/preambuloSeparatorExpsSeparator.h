@@ -2,20 +2,22 @@
 #define PREAMBULOSEPARATOREXPSSEPARATOR_H
 
 #include "ASTNode.h"
+#include "codigo.h"
 #include "preambulo.h"
 #include "exps.h"
 
 
-class PreambuloSeparatorExpsSeparator : public ASTNode{
+class PreambuloSeparatorExpsSeparator : public Codigo{
 	
 	private:
         Preambulo *pream_;
     	Exps *exps_;
 
 	public:
-    	PreambuloSeparatorExpsSeparator(Exps *exps, Preambulo *pream) : exps_(exps), pream_(pream) { }
+    	PreambuloSeparatorExpsSeparator(Preambulo *pream, Exps *exps) : pream_(pream), exps_(exps) { }
     	virtual ~PreambuloSeparatorExpsSeparator() {
-    		delete exps_, pream_;
+    		delete exps_;
+			delete pream_;
     	}
     	PreambuloSeparatorExpsSeparator(const PreambuloSeparatorExpsSeparator& s) : exps_(s.exps_), pream_(s.pream_) { }
     	Exps *exps() const { return exps_; }
