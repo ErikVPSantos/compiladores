@@ -14,6 +14,10 @@ class IdFolha : public ASTNode{
     	virtual ~IdFolha() { }
 
     	IdFolha(const IdFolha& p) : id_(p.id_) { }
+
+		const std::string l_id() {
+			return id_;
+		}
 	
 	void accept(Visitor *v);
 

@@ -137,7 +137,7 @@ class PrintVisitor : public Visitor
 		virtual void visit(IdFolha* e)
 		{
 			std::cout << "L_STRING";
-			att_.push(e);
+			att_.push(e->l_id());
 		}
 		virtual void visit(LinhaLinhas* e)
 		{
@@ -149,10 +149,10 @@ class PrintVisitor : public Visitor
 			e -> linha() -> accept(this);
 
 			std::string nome; // atributos concatenados
-			std::int count = att_.size();
+			int count = att_.size();
 
 			std::stack<std::string> nomeatt = att_;
-			for (int i = 0; i < count; ++i) {
+			for (int i = 0; i < count; ++i) {		
 				nome += nomeatt.pop();
 			}
 
@@ -206,7 +206,7 @@ class PrintVisitor : public Visitor
 			e -> preambulo() -> accept(this);
 			std::cout << "%%";
 			e -> exps() -> accept(this);
-			std >> cout << "%%";
+			std::cout << "%%";
 		}
 		// virtual void visit(Texto* e) {
 		// 	e -> texto() -> accept(this);
